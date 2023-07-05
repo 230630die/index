@@ -2,6 +2,7 @@
 
 body {
   font-family: var(--kor-font);
+  line-height: var(--title-line-height);
 }
 h1 {
   font-size: var(--h1-font-size);
@@ -20,6 +21,9 @@ h5 {
 }
 p {
   font-size: var(--p-font-size);
+}
+.block {
+  display: block;
 }
 header {
   width: 100%;
@@ -81,14 +85,14 @@ main .first-page-container {
   border-radius: 0 0 80px 80px;
   transition: 2s;
 }
-main .first-page-container .first-page-container-img-wrapper{
+main .first-page-container .img-wrapper{
   position: absolute;
   z-index: 999;
   width: 100%;
   height: 100%;
   top: 0;
 }
-main .first-page-container .first-page-container-txt-wrapper {
+main .first-page-container .text-wrapper {
   z-index: 9999;
   transition: 2s;
   width: 1050px;
@@ -104,21 +108,21 @@ main .first-page-container .first-page-container-txt-wrapper {
   justify-content: space-between;
   align-items: center;
 }
-main .first-page-container .first-page-container-txt-wrapper .first-page-container-txt-wrapper-text-inner {
+main .first-page-container .text-wrapper .text-inner {
   width: 100%;
   position: relative;
   padding: var(--big-padding);
 }
-main .first-page-container .first-page-container-txt-wrapper .first-page-container-txt-wrapper-text-inner h5 {
+main .first-page-container .text-wrapper .text-inner h5 {
   font-family: var(--eng-font);
   font-weight: 500;
 }
-main .first-page-container .first-page-container-txt-wrapper .first-page-container-txt-wrapper-text-inner h4{
+main .first-page-container .text-wrapper .text-inner h4{
   font-family: var(--eng-font);
   margin: 20px 0;
   font-weight: bold;
 }
-main .first-page-container .first-page-container-txt-wrapper .first-page-container-txt-wrapper-text-inner .first-page-container-txt-wrapper-button-inner {
+main .first-page-container .text-wrapper .text-inner .button-inner {
   line-height: 70px;
   text-align: center;
   position: absolute;
@@ -132,8 +136,8 @@ main .first-page-container .first-page-container-txt-wrapper .first-page-contain
   font-style: var(--p-font-size);
 }
 
-
-main .first-page-container nav {
+.navigation-container {
+  overflow: hidden;
   padding: var(--small-padding) var(--big-padding);
   display: flex;
   height: 8vh;
@@ -153,22 +157,26 @@ main .first-page-container nav {
   left: 50%;
   transform: translateX(-50%);
 }
-main .first-page-container nav.active {
+.navigation-container.active {
   width: 98%;
   bottom: 1%;
   background-color: #f8f6f6;
 }
-main .first-page-container nav ul {
+.navigation-container.active .scroll-wrapper {
+  opacity: 0;
+  transform: translateY(50px);
+}
+.navigation-container ul {
   display: flex;
   justify-content: center;
 }
-main .first-page-container nav ul li {
+.navigation-container ul li {
   cursor: pointer;
   display: block;
   margin: 0 20px;
   position: relative;
 }
-main .first-page-container nav ul li::after {
+.navigation-container ul li::after {
   content: '';
   display: block;
   height: 100%;
@@ -178,10 +186,10 @@ main .first-page-container nav ul li::after {
   top: 0;
   background-color: black;
 }
-main .first-page-container nav ul li:last-child::after {
+.navigation-container ul li:last-child::after {
 display: none;
 }
-main .first-page-container nav .text {
+.navigation-container .text-wrapper {
   width: 500px;
   overflow: hidden;
   display: flex;
@@ -189,36 +197,69 @@ main .first-page-container nav .text {
   align-items: center;
   height: 100%;
 }
-main .first-page-container nav .text .text-inner {
+.navigation-container .text-wrapper .text-inner {
   position: absolute;
   white-space: nowrap;
   animation: text-ani 60s linear infinite;
 }
-main .first-page-container nav .scroll {
+.navigation-container .scroll-wrapper {
+  overflow: hidden;
+  transition: 1s;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-main .first-page-container nav .scroll span {
+.navigation-container .scroll-wrapper span {
   font-size: var(--h5-font-size);
   margin-left: 5px;
 }
-main .first-page-container nav .kakao {
+.navigation-container .kakako-wrapper {
   display: flex;
   width: 45px;
   height: 45px;
   background-color: var(--black-color);
   border-radius: 50%;
 }
-main .first-page-container nav .kakao img {
+.navigation-container .kakako-wrapper img {
   padding: 10px;
 }
 main .second-page-container {
   padding: var(--page-padding);
   width: 100%;
   height: 100vh;
+  display: flex;
+  justify-content: space-between;
 }
 
+main .second-page-container .txt-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 700px;
+}
+main .second-page-container .txt-wrapper p {
+  display: block;
+}
+main .second-page-container .txt-wrapper .block {
+  height: 30px;
+}
+main .second-page-container .video-wrapper {
+  overflow: hidden;
+  width: 580px;
+  height: 580px;
+  border-radius: 400px 0 40px 0;
+  background-color: #ddd;
+  position: relative;
+}
+main .second-page-container .video-wrapper iframe {
+  pointer-events: none;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%,-10%) scale(220%);
+}
 @keyframes text-ani {
   from { transform: translateX(0%); }
   to { transform: translateX(-50%); }

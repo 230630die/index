@@ -1,6 +1,6 @@
 
 // 첫페이지 움직임 코드
-const news = document.querySelector("main .first-page-container .first-page-container-txt-wrapper");
+const news = document.querySelector("main .first-page-container .text-wrapper");
 const fp = document.querySelector("main .first-page-container");
 const fph = document.querySelector("main .first-page-container").clientHeight;
 const scrolled = () => {

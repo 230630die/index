@@ -15,7 +15,8 @@
   --light-bg-color: #e8e1d8;
   --inner-border : 40px;
   --container-border : 80px;
-  --text-indent : 1.3;
+  --title-line-height : 1;
+  --inner-line-heigth : 1.3;
   --page-padding : 5.729vw 11.458vw;/* 110px 220px */
   --small-padding : 1.042vw; /* 20px */
   --big-padding : 2.083vw; /* 40px */
