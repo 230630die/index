@@ -5,12 +5,16 @@ const fp = document.querySelector("main .first-page-container");
 const fph = document.querySelector("main .first-page-container").clientHeight;
 const scrolled = () => {
   const fpsh = fph - scrollY;
-  fp.style.height = fpsh + 'px';
+  if(scrollY > 1) {
+    $('nav').addClass('active');
+    fp.style.height = fpsh + 'px';
+  } else{
+    $('nav').removeClass('active');
+    fp.style.height = 92 +'vh';
+  }
   if(scrollY > 100) {
-    // news.style.bottom = -scrollY + 100 + 'px';
     news.style.transform = `translate(-50% , ${scrollY-100}%)`;
-  }else{
-    fp.style.height = 90+'vh';
+  } else {
     news.style.transform = `translate(-50%, 0)`
   }
 };
