@@ -3,6 +3,7 @@
 body {
   font-family: var(--kor-font);
   line-height: var(--title-line-height);
+  scroll-behavior: smooth;  
 }
 h1 {
   font-size: var(--h1-font-size);
@@ -12,6 +13,7 @@ h2 {
 }
 h3 {
   font-size: var(--h3-font-size);
+  font-weight: bold;
 }
 h4 {
   font-size: var(--h4-font-size);
@@ -140,7 +142,7 @@ display: none;
 .navigation-container .text-wrapper .text-inner {
   position: absolute;
   white-space: nowrap;
-  animation: text-ani 60s linear infinite;
+  animation: text-ani 60s linear infinite reverse;
 }
 .navigation-container .scroll-wrapper {
   overflow: hidden;
