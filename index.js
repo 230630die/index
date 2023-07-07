@@ -2,27 +2,14 @@ const news = document.querySelectorAll("main .first-page-slide .text-wrapper");
 const fp = document.querySelectorAll("main .first-page-slide");
 const fip = document.querySelectorAll("main .first-page-slide .img-wrapper");
 const fpo = document.querySelector("main .first-page-container").offsetTop;
-const fph = document.querySelectorAll("main .first-page-slide").clientHeight;
-const sp = document.querySelector("main .second-page-container");
-const spo = document.querySelector("main .second-page-container").offsetTop;
-const tp = document.querySelector("main .third-page-container");
-const tpo = document.querySelector("main .third-page-container").offsetTop;
-const fourp = document.querySelector("main .fourth-page-container")
 const fouro = document.querySelector("main .fourth-page-container").offsetTop;
-const footer = document.querySelector('footer');
-const inner = document.querySelectorAll('main .first-page-container .first-page-slide .text-box');
-const inner2 = document.querySelector('main .first-page-container .first-page-slide .text-wrapper .text-inner');
-const inner3 = document.querySelectorAll('main .first-page-container .first-page-slide .text-wrapper .text-inner');
-
-const page = document.querySelectorAll('main .first-page-container .first-page-slide');
 const next = document.querySelector('.next'); 
 const prev = document.querySelector('.prev'); 
 const counts = document.querySelectorAll('.counts');
 const slide = document.querySelectorAll('.slide-box');
 const img = document.querySelectorAll('.img-wrapper img')
 
-
-let num = 0;
+let num = 0; /* 슬라이드 기준 함수 */ 
 const pb = document.querySelector('.prev');
 const nb = document.querySelector('.next');
 const prevevt = () => {
@@ -63,11 +50,58 @@ prev.addEventListener('click',prevevt);
 next.addEventListener('click',nextevt);
 
 
-const countevent = () => {
-  counts.forEach((a,idx,arr) => {
-    
-  })
+
+const countevent1 = () => {
+    num = 0
+    $('main .first-page-container .first-page-slide .slide-box').animate({left: -1050 * num + 'px'}, 300);
+    counts.forEach((a,idx,arr)=> {
+      a.classList.remove('active')
+      arr[num].classList.add('active');
+    })
+    img.forEach((a,idx,arr)=> {
+      a.classList.remove('active')
+      arr[num].classList.add('active');
+    })
 }
+const countevent2 = () => {
+    num = 1
+    $('main .first-page-container .first-page-slide .slide-box').animate({left: -1050 * num + 'px'}, 300);
+    counts.forEach((a,idx,arr)=> {
+      a.classList.remove('active')
+      arr[num].classList.add('active');
+    })
+    img.forEach((a,idx,arr)=> {
+      a.classList.remove('active')
+      arr[num].classList.add('active');
+    })
+}
+const countevent3 = () => {
+    num = 2
+    $('main .first-page-container .first-page-slide .slide-box').animate({left: -1050 * num + 'px'}, 300);
+    counts.forEach((a,idx,arr)=> {
+      a.classList.remove('active')
+      arr[num].classList.add('active');
+    })
+    img.forEach((a,idx,arr)=> {
+      a.classList.remove('active')
+      arr[num].classList.add('active');
+    })
+}
+
+counts.forEach((a,idx,arr) => {
+  arr[0].addEventListener('click',countevent1);
+  arr[1].addEventListener('click',countevent2);
+  arr[2].addEventListener('click',countevent3);
+})
+
+
+let autoSlide = setInterval(nextevt, 3000);
+    $('.next').on('mouseenter', function () {
+      clearInterval(autoSlide);
+    });
+    $('.next').on('mouseleave', function () {
+      autoSlide = setInterval(nextevt, 3000);
+    });
 
 // 하단 네비게이션바 
 const scroll1 = () => {
@@ -110,20 +144,14 @@ const scroll3 = () => {
   }
 }
 
-// 공용 하단바 위치 조절 
-const scroll4 = () => {
-  if(scrollY > spo) {
-    footer.style.opacity = 1;
-  }else {
-    footer.style.opacity = 0;
-  }
-}
+
 addEventListener("scroll", scroll1);
 addEventListener("scroll", scroll2);
 addEventListener("scroll", scroll3);
-addEventListener("scroll", scroll4);
 
 
+
+// 원 + 폰트 이펙트 효과
 const circle = document.querySelector('main .third-page-container .circle-wrapper');
 const scc = circle.scroll({behavior:"smooth"})
 
@@ -174,9 +202,6 @@ const fe = () => {
     });
   }
 }
-// $(window).on('scroll', () => {
-//   $('.')
-// });
 addEventListener('scroll',cs);
 addEventListener('scroll',fe);
 
@@ -190,17 +215,8 @@ const swiper = new Swiper(".mySwiper", {
   }
 });
 
-
-
-
-const log = () => {
-  console.log(scrollY);
-}
-addEventListener("scroll",log);
-
-
 const logo = document.querySelector('.logo');
-
+// 로고 클릭
 const come = () => {
   scrollTo({
     top:0,
@@ -212,4 +228,8 @@ logo.addEventListener('click',come);
 
 
 
-
+// 로그 확인용
+// const log = () => {
+  // console.log(scrollY);
+// }
+// addEventListener("scroll",log);
