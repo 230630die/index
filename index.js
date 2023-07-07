@@ -10,27 +10,66 @@ const tpo = document.querySelector("main .third-page-container").offsetTop;
 const fourp = document.querySelector("main .fourth-page-container")
 const fouro = document.querySelector("main .fourth-page-container").offsetTop;
 const footer = document.querySelector('footer');
+const inner = document.querySelectorAll('main .first-page-container .first-page-slide .text-box');
+const inner2 = document.querySelector('main .first-page-container .first-page-slide .text-wrapper .text-inner');
+const inner3 = document.querySelectorAll('main .first-page-container .first-page-slide .text-wrapper .text-inner');
 
 const page = document.querySelectorAll('main .first-page-container .first-page-slide');
-const next1 = document.querySelector('.next1'); 
-const next2 = document.querySelector('.next2'); 
-const next3 = document.querySelector('.next3'); 
-const prev1 = document.querySelector('.prev1'); 
-const prev2 = document.querySelector('.prev2'); 
-const prev3 = document.querySelector('.prev3'); 
+const next = document.querySelector('.next'); 
+const prev = document.querySelector('.prev'); 
 const counts = document.querySelectorAll('.counts');
-const count11 = document.querySelector('.count1-1');
-const count12 = document.querySelector('.count1-2');
-const count13 = document.querySelector('.count1-3');
-const count21 = document.querySelector('.count2-1');
-const count22 = document.querySelector('.count2-2');
-const count23 = document.querySelector('.count2-3');
-const count31 = document.querySelector('.count3-1');
-const count32 = document.querySelector('.count3-2');
-const count33 = document.querySelector('.count3-3');
-// $('a').on('click', e => {
-//   e.preventDefault();
-// })
+const slide = document.querySelectorAll('.slide-box');
+const img = document.querySelectorAll('.img-wrapper img')
+
+
+let num = 0;
+const pb = document.querySelector('.prev');
+const nb = document.querySelector('.next');
+const prevevt = () => {
+  --num;
+  if(num < 0) {
+    $('main .first-page-container .first-page-slide .slide-box').animate({left: -2100 + 'px'}, 300);
+    num=2; 
+  } else if ((num >-1) || (num=0)) {
+    $('main .first-page-container .first-page-slide .slide-box').animate({left: -1050 * num + 'px'}, 300);    
+  }
+  counts.forEach((a,idx,arr)=> {
+    a.classList.remove('active')
+    arr[num].classList.add('active');
+  })
+  img.forEach((a2,idx,arr2)=> {
+    a2.classList.remove('active')
+    arr2[num].classList.add('active');
+  })
+}
+const nextevt = () => {
+  ++num;
+    if (num < 3) {
+      $('main .first-page-container .first-page-slide .slide-box').animate({left: -1050 * num + 'px'}, 300);
+    } else {
+      $('main .first-page-container .first-page-slide .slide-box').animate({left: 0 + 'px'}, 300)
+      num = 0;
+    }
+    counts.forEach((a,idx,arr)=> {
+      a.classList.remove('active')
+      arr[num].classList.add('active');
+    })
+    img.forEach((a,idx,arr)=> {
+      a.classList.remove('active')
+      arr[num].classList.add('active');
+    })
+}
+prev.addEventListener('click',prevevt);
+next.addEventListener('click',nextevt);
+
+
+const countevent = () => {
+  counts.forEach((a,idx,arr) => {
+    
+  })
+}
+
+// 하단 네비게이션바 
 const scroll1 = () => {
   if(scrollY > 1) {
     $('nav').addClass('active');
@@ -38,6 +77,8 @@ const scroll1 = () => {
     $('nav').removeClass('active');
   }
 };
+
+// 첫 화면 텍스트박스 움직임 
 const scroll2 = () => {
   if(scrollY > 1) {
     news.forEach((a)=> {
@@ -53,6 +94,8 @@ const scroll2 = () => {
     });
   }
 };
+
+// 첫 화면 이미지 움직임
 const scroll3 = () => {
   if(scrollY > fpo) {
     fip.forEach((a) => {
@@ -66,6 +109,8 @@ const scroll3 = () => {
 
   }
 }
+
+// 공용 하단바 위치 조절 
 const scroll4 = () => {
   if(scrollY > spo) {
     footer.style.opacity = 1;
@@ -77,131 +122,6 @@ addEventListener("scroll", scroll1);
 addEventListener("scroll", scroll2);
 addEventListener("scroll", scroll3);
 addEventListener("scroll", scroll4);
-
-const clicks = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[0].classList.remove('active');
-    arr[2].classList.remove('active');
-    arr[1].classList.add('active');
-  })
-}
-const clicks2 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[0].classList.remove('active');
-    arr[1].classList.remove('active');
-    arr[2].classList.add('active');
-  })
-}
-const clicks3 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[1].classList.remove('active');
-    arr[2].classList.remove('active');
-    arr[0].classList.add('active');
-  })
-}
-const clicks4 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[0].classList.remove('active');
-    arr[1].classList.remove('active');
-    arr[2].classList.add('active');
-  })
-}
-const clicks5 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[2].classList.remove('active');
-    arr[1].classList.remove('active');
-    arr[0].classList.add('active');
-  })
-}
-const clicks6 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[2].classList.remove('active');
-    arr[0].classList.remove('active');
-    arr[1].classList.add('active');
-  })
-}
-const clicks11 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[2].classList.remove('active');
-    arr[1].classList.remove('active');
-    arr[0].classList.add('active');
-  })
-}
-const clicks12 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[0].classList.remove('active');
-    arr[2].classList.remove('active');
-    arr[1].classList.add('active');
-  })
-}
-const clicks13 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[0].classList.remove('active');
-    arr[1].classList.remove('active');
-    arr[2].classList.add('active');
-  })
-}
-const clicks21 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[2].classList.remove('active');
-    arr[1].classList.remove('active');
-    arr[0].classList.add('active');
-  })
-}
-const clicks22 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[2].classList.remove('active');
-    arr[1].classList.remove('active');
-    arr[1].classList.add('active');
-  })
-}
-const clicks23 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[0].classList.remove('active');
-    arr[1].classList.remove('active');
-    arr[2].classList.add('active');
-  })
-}
-const clicks31 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[2].classList.remove('active');
-    arr[1].classList.remove('active');
-    arr[0].classList.add('active');
-  })
-}
-const clicks32 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[2].classList.remove('active');
-    arr[0].classList.remove('active');
-    arr[1].classList.add('active');
-  })
-}
-const clicks33 = () => {
-  page.forEach((a,idx,arr) =>{
-    arr[0].classList.remove('active');
-    arr[1].classList.remove('active');
-    arr[2].classList.add('active');
-  })
-}
-next1.addEventListener('click',clicks);
-next2.addEventListener('click',clicks2);
-next3.addEventListener('click',clicks3);
-
-prev1.addEventListener('click',clicks4);
-prev2.addEventListener('click',clicks5);
-prev3.addEventListener('click',clicks6);
-
-count11.addEventListener('click',clicks11);
-count12.addEventListener('click',clicks12);
-count13.addEventListener('click',clicks13);
-
-count21.addEventListener('click',clicks21);
-count22.addEventListener('click',clicks22);
-count23.addEventListener('click',clicks23);
-
-count31.addEventListener('click',clicks31);
-count32.addEventListener('click',clicks32);
-count33.addEventListener('click',clicks33);
 
 
 const circle = document.querySelector('main .third-page-container .circle-wrapper');
@@ -271,11 +191,10 @@ const swiper = new Swiper(".mySwiper", {
 });
 
 
-const fsize = document.querySelector('.footer-container').offsetTop
+
 
 const log = () => {
   console.log(scrollY);
-  console.log(fsize);
 }
 addEventListener("scroll",log);
 
@@ -290,3 +209,7 @@ const come = () => {
   })
 }
 logo.addEventListener('click',come);
+
+
+
+

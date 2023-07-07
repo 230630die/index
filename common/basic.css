@@ -101,8 +101,9 @@ header .menu span {
 }
 .navigation-container.active {
   width: 98%;
-  bottom: 1%;
-  background-color: #f8f6f6;
+  bottom: 2%;
+  color: white;
+  background-color: #87674F
 }
 .navigation-container.active .scroll-wrapper {
   opacity: 0;

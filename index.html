@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>제목</title>
+    <!-- open graph -->
+    <title>YG FAMILY</title>
+    <!-- favicon -->
     <!-- reset -->
     <link rel="stylesheet" href="common/minireset.min.css">
     <!-- icons -->
@@ -32,13 +34,16 @@
 </head>
     
 <body>
+    <!-- 공용 헤더 -->
     <header>
         <div class="logo"><img src="./images/logo_ygfamily.svg" alt="yg_logo"></div>
         <div class="menu">MENU<span class="material-symbols-outlined">
                 menu
             </span></div>
     </header>
+    <!-- 페이지 시작 -->
     <main>
+        <!-- 공용 하단 네비게이션바 -->
         <nav class="navigation-container">
             <ul>
                 <li>KOREAN</li>
@@ -58,87 +63,54 @@
                 <img src="./images/kakao.svg" alt="kakao">
             </div>
         </nav>
+        <!-- 첫 화면 -->
         <div class="first-page-container">
-            <div class="first-page-slide active">
-                <div class="img-wrapper">
-                    <img src="./images/11.jpg" alt="">
-                </div>
+            <div class="first-page-slide">
+                <div class="img-wrapper"> 
+                    <img src="./images/11.jpg" alt=""class="active">
+                    <img src="./images/12.jfif" alt="" >
+                    <img src="./images/13.jfif" alt="">
+                 </div>
                 <div class="text-wrapper">
-                    <a href="#" class="material-symbols-outlined prev prev1 button">
+                    <a href="#" class="material-symbols-outlined prev prev1 button" id="prev">
                         arrow_back
                     </a>
                     <a href="#" class="material-symbols-outlined next next1 button">
                         arrow_forward
                     </a>
-                    <div class="text-inner">
-                        <h5>WHAT'S ON</h5>
-                        <h4>BLACKPINK</h4>
-                        <p>블랙핑크 지수, 31일 솔로 데뷔 확정</p>
-                        <a href="https://yg-life.com/archives/181763?lang=ko" target="_blank" class="button-inner">
-                            MORE
-                        </a>
-                        <div class="count">
-                            <span class="counts count1-1 active"></span>
-                            <span class="counts count1-2"></span>
-                            <span class="counts count1-3"></span>
+                    <!-- 텍스트 영역 -->
+                    <div class="text-box">
+                        <div class="slide-box">
+                            <div class="text-inner">
+                                <h5>WHAT'S ON</h5>
+                                <h4>BLACKPINK</h4>
+                                <p>블랙핑크 지수, 31일 솔로 데뷔 확정</p>
+                            </div>
+                            <div class="text-inner">
+                                <h5>WHAT'S ON</h5>
+                                <h4>TREASURE</h4>
+                                <p>트레저 폭발적 성장..’2022 MAMA’ 본상 “앞으로도 직진할 것”</p>
+                            </div>
+                            <div class="text-inner">
+                                <h5>WHAT'S ON</h5>
+                                <h4>BABY MONSTER</h4>
+                                <p>베이비몬스터, 댄스 영상 24시간 만에 419만뷰 돌파..’압도적'</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="first-page-slide">
-                <div class="img-wrapper">
-                    <img src="./images/12.jfif" alt="">
-                </div>
-                <div class="text-wrapper">
-                    <a href="#" class="material-symbols-outlined prev prev2 button">
-                        arrow_back
+                    <a href="https://yg-life.com/archives/181763?lang=ko" target="_blank" class="button-inner">
+                        MORE
                     </a>
-                    <a href="#" class="material-symbols-outlined next next2 button">
-                        arrow_forward
-                    </a>
-                    <div class="text-inner">
-                        <h5>WHAT'S ON</h5>
-                        <h4>TREASURE</h4>
-                        <p>트레저 폭발적 성장..’2022 MAMA’ 본상 “앞으로도 직진할 것”</p>
-                        <a href="https://yg-life.com/archives/180077?lang=ko" target="_blank" class="button-inner">
-                            MORE
-                        </a>
-                        <div class="count">
-                            <span class="counts count2-1"></span>
-                            <span class="counts count2-2 active"></span>
-                            <span class="counts count2-3"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="first-page-slide">
-                <div class="img-wrapper">
-                    <img src="./images/13.jfif" alt="">
-                </div>
-                <div class="text-wrapper">
-                    <a href="#" class="material-symbols-outlined prev prev3 button">
-                        arrow_back
-                    </a>
-                    <a href="#" class="material-symbols-outlined next next3 button">
-                        arrow_forward
-                    </a>
-                    <div class="text-inner">
-                        <h5>WHAT'S ON</h5>
-                        <h4>BABY MONSTER</h4>
-                        <p>베이비몬스터, 댄스 영상 24시간 만에 419만뷰 돌파..’압도적'</p>
-                        <a href="https://yg-life.com/archives/180965?lang=ko" target="_blank" class="button-inner">
-                            MORE
-                        </a>
-                        <div class="count">
-                            <span class="counts count3-1"></span>
-                            <span class="counts count3-2"></span>
-                            <span class="counts count3-3 active"></span>
-                        </div>
+                    <div class="count">
+                        <span class="counts count1-1 active"></span>
+                        <span class="counts count1-2"></span>
+                        <span class="counts count1-3"></span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="basic">
+            <!-- 두번째 화면 -->
             <div class="second-page-container">
                 <div class="txt-wrapper">
                     <h3>WELCOME <br>YG</h3>
@@ -153,6 +125,7 @@
                 </div>
             </div>
         </div>
+        <!-- 세번째 화면 -->
         <div class="third-page-container">
             <div class="circle-wrapper">
                 circle
@@ -173,9 +146,12 @@
                 <span class="ef1">f</span><span class="ef2">l</span><span class="ef3">o</span><span class="ef4">w</span>
             </div>
         </div>
+        <!-- 배경색 변경 공간 -->
         <div class="basic">
+        <!-- 네번째 화면 -->
         <div class="fourth-page-container">
             <h2>HOW WE DO YG</h2>
+            <!-- 스와이퍼 플러그인 html -->
               <div class="swiper mySwiper">
                 <div class="swiper-wrapper"> 
                   <div class="swiper-slide">
@@ -227,6 +203,7 @@
             <h2>BIGBANG - BLACKPINK - JISOO - AKMU - TREASURE - KIM HAE IN - YOO SEUNG HO - CHA SEOUNG WON - CHOI JI WOO - BIGBANG - BLACKPINK - JISOO - AKMU - TREASURE - KIM HAE IN - YOO SEUNG HO - CHA SEOUNG WON - CHOI JI WOO</h2>
         </div>
     </div>
+    <!-- 공용 하단바 -->
     <footer>
         <div class="footer-container">
           <div class="footer-wrapper">
