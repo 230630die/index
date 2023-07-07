@@ -234,24 +234,31 @@ footer {
  height: 100vh;
 }
 .menu-wrapper {
-  transition: 0.5s;
+  top:0;
+  left: auto;
+  right: 0;
+  transition: 0.2s;
  overflow: hidden;
  z-index: 99999;
- width: 0%;
+ width: 100%;
  height: 100%;
+ opacity: 0;
  background-color: var(--light-bg-color);
   position: fixed;
   visibility: hidden;
-  top: 50%;
-  -webkit-transform: translate(0%, -50%);
-         transform: translate(0%, -50%);
+  transform: translateX(50%);
   text-align: left;
  display: grid;
  grid-template-columns: 60% 40%;
 }
 .menu-wrapper.active {
+  opacity: 1;
   transition: 0.5s;
   width: 100%;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
 }
 .menu-inner-list {
   padding: 4.5vw;
