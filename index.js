@@ -220,7 +220,6 @@ const logo = document.querySelector('.logo');
 const come = () => {
   scrollTo({
     top:0,
-    left:0,
     behavior:"smooth"
   })
 }
